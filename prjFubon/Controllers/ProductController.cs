@@ -73,5 +73,16 @@ namespace prjFubon.Controllers
             }
             return RedirectToAction("List");
         }
+
+        public ActionResult Delete(int? id)
+        {
+            Product x = _db.Products.FirstOrDefault(n => n.ProductId == id);
+            if (x != null)
+            {
+                _db.Products.Remove(x);
+                _db.SaveChanges();
+            }
+            return RedirectToAction("List");
+        }
     }
 }
