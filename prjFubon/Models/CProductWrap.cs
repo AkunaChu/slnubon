@@ -41,7 +41,7 @@ namespace prjFubon.Models
         public short? UnitsOnOrder { get { return _product.UnitsOnOrder; } set { this.product.UnitsOnOrder = value; } }
 
         public short? ReorderLevel { get { return _product.ReorderLevel; } set { this.product.ReorderLevel = value; } }
-
+        [DisplayName("折扣")]
         public bool Discontinued { get { return _product.Discontinued; } set { this.product.Discontinued = value; } }
 
         public virtual Category? Category { get; set; }

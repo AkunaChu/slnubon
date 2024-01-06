@@ -35,5 +35,43 @@ namespace prjFubon.Controllers
             }
             return View(pro);
         }
+
+        public ActionResult Create()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Product p)
+        {
+            _db.Products.Add(p);
+            _db.SaveChanges();
+            return RedirectToAction("List");
+        }
+
+        //public IActionResult Update(int? id)
+        //{
+        //    Product x = _db.Products.FirstOrDefault(n => n.ProductId == id);
+        //    if (x == null)
+        //        return RedirectToAction("List");
+        //    return View(x);
+        //}
+        //[HttpPost]
+        //public ActionResult Update(CProductWrap pln)
+        //{
+        //    Product pDb = _db.Products.FirstOrDefault(n => n.ProductId == pln.ProductId);
+
+        //    if (pDb != null)
+        //    {
+                
+        //        pDb.FName = pln.FName;
+        //        pDb.FPrice = pln.FPrice;
+        //        pDb.FQty = pln.FQty;
+        //        pDb.FCost = pln.FCost;
+        //        db.SaveChanges();
+
+        //    }
+        //    return RedirectToAction("List");
+        //}
     }
 }
