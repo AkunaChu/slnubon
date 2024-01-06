@@ -9,6 +9,11 @@
 <p>
     <a asp-action="Create">新增產品</a>
 </p>
+<form asp-action="List">
+<input type="text" name="txtKeyword" />
+<input type="submit" value="搜尋" />
+<input type="submit" value="重設" />
+</form>
 <table class="table">
     <thead>
         <tr>

@@ -5,7 +5,7 @@ using prjFubon.ViewModels;
 
 namespace prjFubon.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : SuperController
     {
         private readonly IWebHostEnvironment _host;
         private readonly NorthwindContext _db;
