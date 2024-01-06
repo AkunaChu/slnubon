@@ -49,29 +49,29 @@ namespace prjFubon.Controllers
             return RedirectToAction("List");
         }
 
-        //public IActionResult Update(int? id)
-        //{
-        //    Product x = _db.Products.FirstOrDefault(n => n.ProductId == id);
-        //    if (x == null)
-        //        return RedirectToAction("List");
-        //    return View(x);
-        //}
-        //[HttpPost]
-        //public ActionResult Update(CProductWrap pln)
-        //{
-        //    Product pDb = _db.Products.FirstOrDefault(n => n.ProductId == pln.ProductId);
+        public IActionResult Update(int? id)
+        {
+            Product x = _db.Products.FirstOrDefault(n => n.ProductId == id);
+            if (x == null)
+                return RedirectToAction("List");
+            return View(x);
+        }
+        [HttpPost]
+        public ActionResult Update(CProductWrap pln)
+        {
+            Product pDb = _db.Products.FirstOrDefault(n => n.ProductId == pln.ProductId);
 
-        //    if (pDb != null)
-        //    {
+            if (pDb != null)
+            {
                 
-        //        pDb.FName = pln.FName;
-        //        pDb.FPrice = pln.FPrice;
-        //        pDb.FQty = pln.FQty;
-        //        pDb.FCost = pln.FCost;
-        //        db.SaveChanges();
+                pDb.ProductName = pln.ProductName;
+                pDb.QuantityPerUnit = pln.QuantityPerUnit;
+                pDb.UnitPrice = pln.UnitPrice;
+                pDb.UnitsInStock = pln.UnitsInStock;
+                _db.SaveChanges();
 
-        //    }
-        //    return RedirectToAction("List");
-        //}
+            }
+            return RedirectToAction("List");
+        }
     }
 }
