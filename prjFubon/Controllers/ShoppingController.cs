@@ -17,9 +17,6 @@ namespace prjFubon.Controllers
             return View();
         }
 
-        public ActionResult List()
-        {
-            
-        }
+       
     }
 }

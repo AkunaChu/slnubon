@@ -1,0 +1,65 @@
+﻿@model IEnumerable<prjFubon.Models.CProductWrap>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>商品後台首頁</h1>
+
+<p>
+    <a asp-action="Create">新增產品</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                序號
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityPerUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsInStock)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitPrice)USD
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitsInStock)
+                    </td>
+                    
+                    <td>
+                        @Html.ActionLink("修改", "Update", "Product", new { id = item.ProductId }, null)
+                        @Html.ActionLink("刪除", "Delete", "Product", new { id = item.ProductId },
+                             new { onclick = "return confirm('確定刪除?')" })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
